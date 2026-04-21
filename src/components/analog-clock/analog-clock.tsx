@@ -9,6 +9,7 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
   draggable = false,
   onHourDrag,
   label,
+  className,
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const isDragging = useRef(false);
@@ -161,13 +162,15 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
           {label}
         </div>
       )}
+      <div className={className} style={!className ? { width: size, height: size } : undefined}>
       <svg
         ref={svgRef}
+        viewBox={`0 0 ${size} ${size}`}
         width={size}
         height={size}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
-        className="select-none"
+        className="select-none w-full h-auto"
         style={{ cursor: draggable ? "grab" : "default" }}
       >
         {/* Outer glow ring */}
@@ -250,6 +253,7 @@ export const AnalogClock: React.FC<AnalogClockProps> = ({
           </text>
         )}
       </svg>
+      </div>
 
       {/* Digital time display */}
       <div

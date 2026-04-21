@@ -55,7 +55,7 @@ export const WorldTimezoneMap: React.FC<Props> = ({ selectedOffset }) => {
   const selHue = hue(selectedOffset);
 
   return (
-    <div className="flex flex-col grow bg-[#0c1929] rounded-2xl border border-[#1e3a5f] p-4 mb-6 shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
+    <div className="flex flex-col md:grow bg-[#0c1929] rounded-2xl border border-[#1e3a5f] p-4 shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
       <div className="text-slate-400 text-xs text-center mb-2 tracking-widest uppercase">
         Time Zone Map —{" "}
         {selectedOffset === 0 ? "UTC" : `UTC${label(selectedOffset)}`}

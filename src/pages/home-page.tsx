@@ -15,7 +15,7 @@ export const HomePage = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-[#060e1a] text-slate-200 px-4 py-6">
-      <main className="flex gap-6 w-full ">
+      <main className="flex flex-col md:flex-row gap-6 w-full">
         <WorldTimezoneMap selectedOffset={selectedOffset} />
 
         <div className="flex flex-col items-center justify-center gap-8 mt-2">
@@ -29,6 +29,7 @@ export const HomePage = () => {
               minutes={mainTime.minutes}
               seconds={mainTime.seconds}
               size={CLOCK_SIZE_MAIN}
+              className="w-44 sm:w-[260px]"
               draggable
               onHourDrag={handleHourDrag}
             />
@@ -43,6 +44,7 @@ export const HomePage = () => {
                 minutes={prevTime.minutes}
                 seconds={prevTime.seconds}
                 size={CLOCK_SIZE_SECONDARY}
+                className="w-[110px] sm:w-[160px]"
               />
             </div>
 
@@ -55,6 +57,7 @@ export const HomePage = () => {
                 minutes={nextTime.minutes}
                 seconds={nextTime.seconds}
                 size={CLOCK_SIZE_SECONDARY}
+                className="w-[110px] sm:w-[160px]"
               />
             </div>
           </div>

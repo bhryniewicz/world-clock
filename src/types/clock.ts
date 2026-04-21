@@ -6,4 +6,5 @@ export interface AnalogClockProps {
   draggable?: boolean;
   onHourDrag?: (newHour24: number) => void;
   label?: string;
+  className?: string;
 }
