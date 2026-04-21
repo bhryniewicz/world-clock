@@ -1,6 +1,12 @@
-import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import WorldTimezoneMap from "./world-timezones-map";
+import { WorldTimezoneMap } from "./world-timezones-map";
 
 // Mock d3-geo — module-level constants are set when the module is first imported
 vi.mock("d3-geo", () => {
@@ -83,7 +89,6 @@ describe("WorldTimezoneMap — heading", () => {
     expect(heading?.textContent).toContain("UTC+5");
     await act(async () => {});
   });
-
 });
 
 describe("WorldTimezoneMap — SVG structure", () => {
@@ -155,7 +160,6 @@ describe("WorldTimezoneMap — legend", () => {
     expect(screen.getByText(/Current zone \(UTC\+3\)/)).toBeInTheDocument();
     await act(async () => {});
   });
-
 });
 
 describe("WorldTimezoneMap — timezone features", () => {

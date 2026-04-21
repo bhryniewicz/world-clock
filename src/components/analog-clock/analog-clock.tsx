@@ -1,7 +1,7 @@
-import React, { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect } from "react";
 import type { AnalogClockProps } from "../../types";
 
-const AnalogClock: React.FC<AnalogClockProps> = ({
+export const AnalogClock: React.FC<AnalogClockProps> = ({
   hours,
   minutes,
   seconds,
@@ -65,7 +65,7 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
     isDragging.current = false;
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (draggable) {
       window.addEventListener("mousemove", onMouseMove);
       window.addEventListener("mouseup", onMouseUp);
@@ -84,7 +84,7 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
     [draggable],
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!draggable) return;
     const onTouchMove = (e: TouchEvent) => {
       if (!isDragging.current || !onHourDrag) return;
@@ -260,5 +260,3 @@ const AnalogClock: React.FC<AnalogClockProps> = ({
     </div>
   );
 };
-
-export default AnalogClock;

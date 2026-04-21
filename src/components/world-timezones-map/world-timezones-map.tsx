@@ -3,7 +3,11 @@ import { feature } from "topojson-client";
 import type { Topology, GeometryCollection } from "topojson-specification";
 import { getCurrentUTCOffset } from "../../utils/timezone";
 import { pathGen, hue, fill } from "../../lib/geo";
-import { MAP_WIDTH as W, MAP_HEIGHT as H, TIMEZONES_URL } from "../../config/constants";
+import {
+  MAP_WIDTH as W,
+  MAP_HEIGHT as H,
+  TIMEZONES_URL,
+} from "../../config/constants";
 import type { TzFeature, Tooltip } from "../../types";
 
 const offsetCache: Record<string, number> = {};
@@ -18,7 +22,7 @@ interface Props {
   selectedOffset: number;
 }
 
-const WorldTimezoneMap: React.FC<Props> = ({ selectedOffset }) => {
+export const WorldTimezoneMap: React.FC<Props> = ({ selectedOffset }) => {
   const [features, setFeatures] = useState<TzFeature[]>([]);
   const [hovered, setHovered] = useState<string | null>(null);
   const [tooltip, setTooltip] = useState<Tooltip | null>(null);
@@ -28,7 +32,9 @@ const WorldTimezoneMap: React.FC<Props> = ({ selectedOffset }) => {
       .then((r) => r.json())
       .then((topo) => {
         const topo_ = topo as Topology;
-        const obj = topo_.objects[Object.keys(topo_.objects)[0]] as GeometryCollection<{ tzid: string }>;
+        const obj = topo_.objects[
+          Object.keys(topo_.objects)[0]
+        ] as GeometryCollection<{ tzid: string }>;
         const fc = feature(topo_, obj);
         setFeatures(fc.features as unknown as TzFeature[]);
       })
@@ -205,5 +211,3 @@ const WorldTimezoneMap: React.FC<Props> = ({ selectedOffset }) => {
     </div>
   );
 };
-
-export default WorldTimezoneMap;

@@ -1,9 +1,9 @@
-import AnalogClock from "../components/analog-clock/analog-clock";
-import WorldTimezoneMap from "../components/world-timezones-map/world-timezones-map";
 import { useTime } from "../hooks/use-time";
 import { useSelectedOffset } from "../hooks/use-selected-offset";
 import { getTimeAtOffset, formatOffset } from "../utils/timezone";
 import { CLOCK_SIZE_MAIN, CLOCK_SIZE_SECONDARY } from "../config/constants";
+import { AnalogClock } from "../components/analog-clock/analog-clock";
+import { WorldTimezoneMap } from "../components/world-timezones-map/world-timezones-map";
 
 export const HomePage = () => {
   const now = useTime();
