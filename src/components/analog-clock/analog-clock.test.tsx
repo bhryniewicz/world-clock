@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import AnalogClock from "./analog-clock";
+import { AnalogClock } from "./analog-clock";
 
 describe("AnalogClock — rendering", () => {
   it("renders an SVG with the given size", () => {
